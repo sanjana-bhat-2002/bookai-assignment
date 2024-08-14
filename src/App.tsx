@@ -3,7 +3,7 @@ import Card from './components/widgets/Card'
 import Table from './components/widgets/Table';
 import './index.css'
 import MainLayout from './layouts/MainLayout'
-import Markdown from 'react-markdown';
+
 
 const pricingDataHeadings = ["API", "Model", "Price per 1K Tokens"]
 const pricingData = [
