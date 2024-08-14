@@ -1,5 +1,6 @@
 import { FC, ReactNode } from 'react'
 import Header from '../components/widgets/Header';
+import ThemeButton from '../components/widgets/ThemeButton';
 // import Footer from '../components/Footer';
 
 interface LayoutProps {
@@ -10,7 +11,7 @@ const MainLayout: FC<LayoutProps> = ({ children }) => {
   return (
     <>
     
-    <div className=''> 
+    <div className='bg-primary dark:bg-primary-dark'> 
     <Header />
      {children} 
      {/* <Footer /> */}

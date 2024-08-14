@@ -5,9 +5,24 @@
 @tailwind utilities;
 
 :root {
-  --primary: linear-gradient(135deg, #1e0533, #110a1f);
+  --primary: #e0e7ff;
+  --secondary: #eef2ff;
   --accent: #6366f1;
-  --text-color: #ffffff;
+  --text-heading: #6366f1;
+  --text-primary: #374151;
+  --text-secondary: #4b5563;
+  --border: #d1d5db;
+
+  --primary-dark: #0f172a;
+  --secondary-dark: #1e293b;
+  --accent-dark: #6366f1;
+  --text-heading-dark: #a5b4fc;
+  --text-primary-dark: #ffffff;
+  --text-secondary-dark: #e2e8f0;
+  --border-dark: #334155;
+
+
+
   --text-secondary: #b3b3b3;
   --gradient-1: linear-gradient(45deg, #726bff, #57b6fe);
   --gradient-2: linear-gradient(45deg, #8a2be2, #4b0082);
@@ -22,7 +37,7 @@
 
 
 p {
-  color: white;
+  /* color: white; */
   margin-bottom: 1rem;
 }
 

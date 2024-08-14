@@ -7,12 +7,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        "accent": "var(--accent)",
-        "section": "var(--section-background)",
-        "secondary": "var(--secondary-color)",
-        "heading": "var(--heading-color)",
-        "border-color": "var(--border-color)",
-        "background": "var(--background-color)"
+        primary: 'var(--primary)',
+        secondary: 'var(--secondary)',
+        accent: 'var(--accent)',
+        'text-heading': 'var(--text-heading)',
+        'text-primary': 'var(--text-primary)',
+        'text-secondary': 'var(--text-secondary)',
+        border: 'var(--border)',
+        'primary-dark': 'var(--primary-dark)',
+        'secondary-dark': 'var(--secondary-dark)',
+        'accent-dark': 'var(--accent-dark)',
+        'text-heading-dark': 'var(--text-heading-dark)',
+        'text-primary-dark': 'var(--text-primary-dark)',
+        'text-secondary-dark': 'var(--text-secondary-dark)',
+        'border-dark': 'var(--border-dark)',
       },
 
       backgroundImage: {
@@ -21,6 +29,7 @@ export default {
 
     },
   },
-  plugins: [require("@anishshobithps/tailwind-breakpoints")]
+  plugins: [require("@anishshobithps/tailwind-breakpoints")],
+  darkMode: "class"
 }
 
