@@ -8,11 +8,14 @@ interface LayoutProps {
 
 const MainLayout: FC<LayoutProps> = ({ children }) => {
   return (
+    <>
+    
     <div className=''> 
     <Header />
      {children} 
      {/* <Footer /> */}
     </div>
+    </>
   )
 }
 

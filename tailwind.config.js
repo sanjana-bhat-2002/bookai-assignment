@@ -11,7 +11,8 @@ export default {
         "section": "var(--section-background)",
         "secondary": "var(--secondary-color)",
         "heading": "var(--heading-color)",
-        "border-color": "var(--border-color)"
+        "border-color": "var(--border-color)",
+        "background": "var(--background-color)"
       },
 
       backgroundImage: {
