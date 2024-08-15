@@ -1,6 +1,9 @@
-const codeBlocks = [
-    {
-        python: `import requests
+interface CodeBlocks {
+  [key: string]: string; // Allows any string as a key
+}
+
+const codeBlocks: CodeBlocks = {
+  Python: `import requests
 
 API_KEY = "your_api_key_here"
 API_ENDPOINT = "https://tryBookAI.com/api/generate-book"
@@ -24,12 +27,9 @@ if response.status_code == 200:
     result = response.json()
     print(f"Book generation started. Job ID: {result['job_id']}")
 else:
-    print(f"Error: {response.status_code} - {response.text}")`
-    },
+    print(f"Error: {response.status_code} - {response.text}")`,
 
-
-    {
-        javascript: `const axios = require('axios');
+  Javascript: `const axios = require('axios');
 
 const API_KEY = 'your_api_key_here';
 const API_ENDPOINT = 'https://tryBookAI.com/api/generate-book';
@@ -53,6 +53,7 @@ axios.post(API_ENDPOINT, data, { headers })
     })
     .catch(error => {
         console.error('Error:', error.response ? error.response.data : error.message);
-    });`
-    }
-]
+    });`,
+};
+
+export default codeBlocks;

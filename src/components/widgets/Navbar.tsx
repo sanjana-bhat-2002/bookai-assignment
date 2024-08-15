@@ -14,10 +14,11 @@ const ItemList = () => {
   const setScrollOffset = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      const headerOffset = 200; 
-      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      const headerOffset = 200;
+      const elementPosition =
+        element.getBoundingClientRect().top + window.scrollY;
       const offsetPosition = elementPosition - headerOffset;
-  
+
       window.scrollTo({
         top: offsetPosition,
         behavior: "smooth",
@@ -31,13 +32,16 @@ const ItemList = () => {
         <li
           key={index}
           className="px-4 py-3 whitespace-nowrap hover:text-accent dark:hover:text-accent text-center text-sm uppercase text-text-primary dark:text-text-primary-dark w-full"
-        > 
-          <a href={`#${item.toLowerCase()}`} onClick={(e) => {
-          e.preventDefault();
-          setScrollOffset(item.toLowerCase());
-        }}>
-          {item}
-        </a>
+        >
+          <a
+            href={`#${item.toLowerCase()}`}
+            onClick={(e) => {
+              e.preventDefault();
+              setScrollOffset(item.toLowerCase());
+            }}
+          >
+            {item}
+          </a>
         </li>
       ))}
     </ul>
@@ -51,7 +55,6 @@ const Navbar = () => {
     <div className="sticky top-0 z-50 flex md:flex-col-reverse items-center justify-between p-8 md:p-2 bg-secondary dark:bg-secondary-dark border-b border-border dark:border-border-dark">
       <ThemeButton />
       <nav>
-      
         <div
           className="md:hidden cursor-pointer"
           onClick={() => setIsNavOpen(!isNavOpen)}
@@ -64,12 +67,10 @@ const Navbar = () => {
         {/* Mobile Menu */}
         {isNavOpen && (
           <div className="absolute top-0 inset-0 z-10 flex flex-col items-center justify-center w-full h-1/2 bg-secondary dark:bg-secondary-dark">
-            
             <div
               className="absolute top-0 right-0 p-8 z-50 text-red-500"
               onClick={() => setIsNavOpen(false)}
             >
-              
               <svg
                 className="w-8 h-8 text-text-primary dark:text-text-primary-dark"
                 viewBox="0 0 24 24"
@@ -82,18 +83,15 @@ const Navbar = () => {
                 <line x1="18" y1="6" x2="6" y2="18" />
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>
-              
             </div>
             <div className="absolute top-0 w-full border-b border-border dark:border-border-dark">
-            <ItemList />
+              <ItemList />
             </div>
-            
           </div>
         )}
 
         {/* Desktop Menu */}
         <div className="hidden md:flex flex-col space-x-8">
-        
           <ItemList />
         </div>
       </nav>

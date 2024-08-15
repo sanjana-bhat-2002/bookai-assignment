@@ -1,4 +1,4 @@
-const apiHeadings = ["Parameter", "Type", "Description"]
+const apiHeadings = ["Parameter", "Type", "Description"];
 const apiData = [
   {
     parameter: "api",
@@ -8,7 +8,8 @@ const apiData = [
   {
     parameter: "model",
     type: "string",
-    description: 'The specific model to use (e.g., "gpt-3.5-turbo", "gpt-4", "llama-2-70b")',
+    description:
+      'The specific model to use (e.g., "gpt-3.5-turbo", "gpt-4", "llama-2-70b")',
   },
   {
     parameter: "topic",
@@ -27,30 +28,28 @@ const apiData = [
   },
 ];
 
-const pricingDataHeadings = ["API", "Model", "Price per 1K Tokens"]
+const pricingDataHeadings = ["API", "Model", "Price per 1K Tokens"];
 const pricingData = [
   {
     api: "OpenAI",
     model: "GPT-3.5",
-    price: "$0.002"
+    price: "$0.002",
   },
   {
     api: "OpenAI",
     model: "GPT-4",
-    price: "$0.03"
+    price: "$0.03",
   },
   {
     api: "Together AI",
     model: "Llama-2-70b",
-    price: "$0.0008"
+    price: "$0.0008",
   },
   {
     api: "Together AI",
     model: "Llama-2-13b",
-    price: "$0.0006"
+    price: "$0.0006",
   },
+];
 
-]
-
-
-export { apiData, apiHeadings, pricingData, pricingDataHeadings }
+export { apiData, apiHeadings, pricingData, pricingDataHeadings };
