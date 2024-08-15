@@ -81,6 +81,7 @@ function App() {
               <div className="border rounded-lg border-border-color dark:border-border-dark break-all p-4">
                 Your API Key:
                 <strong className={apiKey ? "inline" : "hidden"}>
+                  {" "}
                   {apiKey}
                 </strong>
               </div>

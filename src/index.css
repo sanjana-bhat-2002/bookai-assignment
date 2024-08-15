@@ -35,9 +35,19 @@
   --hover-color: #22d3ee;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background-color);
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+}
+
 
 p {
-  /* color: white; */
   margin-bottom: 1rem;
 }
 
