@@ -67,7 +67,7 @@ function App() {
                 To use the API, you need to include your API key in the header
                 of each request:
               </p>
-              <p className=" border rounded-lg border-border-color break-all p-4 dark:border-border-dark">
+              <p className=" border rounded-lg border-border break-all p-4 dark:border-border-dark">
                 X-API-Key: YOUR_API_KEY
               </p>
               <p>To generate an API key, use the button below:</p>
@@ -78,7 +78,7 @@ function App() {
               >
                 Generate API Key
               </button>
-              <div className="border rounded-lg border-border-color dark:border-border-dark break-all p-4">
+              <div className="border rounded-lg border-border dark:border-border-dark break-all p-4">
                 Your API Key:
                 <strong className={apiKey ? "inline" : "hidden"}>
                   {" "}

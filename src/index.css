@@ -23,16 +23,6 @@
 
   --accent-secondary: #22d3ee;
 
-  --text-secondary: #b3b3b3;
-  --gradient-1: linear-gradient(45deg, #726bff, #57b6fe);
-  --gradient-2: linear-gradient(45deg, #8a2be2, #4b0082);
-
-  --background-color: #0f172a;
-  --secondary-color: #e2e8f0;
-  --section-background: #1e293b;
-  --border-color: #334155;
-  --heading-color: #a5b4fc;
-  --hover-color: #22d3ee;
 }
 
 html {
