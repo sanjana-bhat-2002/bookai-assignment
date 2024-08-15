@@ -11,7 +11,7 @@ export default function ThemeBtn() {
     }
   };
   return (
-    <div className="">
+    <div className="py-2">
       <label className="relative inline-flex items-center cursor-pointer">
         <input
           type="checkbox"

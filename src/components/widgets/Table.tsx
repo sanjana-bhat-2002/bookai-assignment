@@ -9,7 +9,7 @@ const Table = <T extends { [key: string]: any }>({
 }: TableProps<T>) => {
   console.log(tableContent);
   return (
-    <table className="w-full mx-auto text-sm md:text-lg mt-4 mb-8 text-left border border-separate border-spacing-0 overflow-hidden rounded-xl border-border dark:border-border-dark">
+    <table className="w-full text-sm md:text-lg mt-4 mb-8 text-left border border-separate border-spacing-0 overflow-hidden rounded-xl border-border dark:border-border-dark">
       <thead>
         <tr>
           {tableHeading.map((item, index) => (

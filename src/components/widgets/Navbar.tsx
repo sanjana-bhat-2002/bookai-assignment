@@ -27,11 +27,11 @@ const ItemList = () => {
   };
 
   return (
-    <ul className="flex flex-col justify-center py-8 bg-indigo-50 dark:bg-secondary-dark dark:bg-section md:flex-row w-full">
+    <ul className="flex flex-col justify-center pt-8 pb-4 bg-indigo-50 dark:bg-secondary-dark dark:bg-section md:flex-row w-full">
       {navbarItems.map((item, index) => (
         <li
           key={index}
-          className="px-4 py-3 whitespace-nowrap hover:text-accent dark:hover:text-accent text-center text-sm uppercase text-text-primary dark:text-text-primary-dark w-full"
+          className="px-4 py-3 whitespace-nowrap hover:text-accent transition-colors duration-400 dark:hover:text-accent text-center text-sm uppercase text-text-primary dark:text-text-primary-dark w-full"
         >
           <a
             href={`#${item.toLowerCase()}`}
