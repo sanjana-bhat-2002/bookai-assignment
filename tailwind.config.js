@@ -10,6 +10,7 @@ export default {
         primary: 'var(--primary)',
         secondary: 'var(--secondary)',
         accent: 'var(--accent)',
+        'accent-secondary': 'var(--accent-secondary)',
         'text-heading': 'var(--text-heading)',
         'text-primary': 'var(--text-primary)',
         'text-secondary': 'var(--text-secondary)',

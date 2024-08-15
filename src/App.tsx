@@ -6,36 +6,69 @@ import './index.css'
 import MainLayout from './layouts/MainLayout'
 import { ThemeProvider } from './contexts/theme'
 import { Tabs, Tab } from './components/widgets/Tabs'
+import CodeBlock from './components/widgets/CodeBlock';
+import { apiData, apiHeadings, pricingData, pricingDataHeadings } from './static-data/table-data';
 
 
-const pricingDataHeadings = ["API", "Model", "Price per 1K Tokens"]
-const pricingData = [
-  {
-    api: "OpenAI",
-    model: "GPT-3.5",
-    price: "$0.002"
-  },
-  {
-    api: "OpenAI",
-    model: "GPT-4",
-    price: "$0.03"
-  },
-  {
-    api: "Together AI",
-    model: "Llama-2-70b",
-    price: "$0.0008"
-  },
-  {
-    api: "Together AI",
-    model: "Llama-2-13b",
-    price: "$0.0006"
-  },
 
-]
+
+const codeBlocks = [`import requests
+
+API_KEY = "your_api_key_here"
+API_ENDPOINT = "https://tryBookAI.com/api/generate-book"
+
+headers = {
+    "Content-Type": "application/json",
+    "X-API-Key": API_KEY
+}
+
+data = {
+    "api": "openai",
+    "model": "gpt-3.5-turbo",
+    "topic": "The Future of Artificial Intelligence",
+    "language": "English",
+    "word_count": 5000
+}
+
+response = requests.post(API_ENDPOINT, json=data, headers=headers)
+
+if response.status_code == 200:
+    result = response.json()
+    print(f"Book generation started. Job ID: {result['job_id']}")
+else:
+    print(f"Error: {response.status_code} - {response.text}")`,
+  
+  
+  `const axios = require('axios');
+
+const API_KEY = 'your_api_key_here';
+const API_ENDPOINT = 'https://tryBookAI.com/api/generate-book';
+
+const headers = {
+    'Content-Type': 'application/json',
+    'X-API-Key': API_KEY
+};
+
+const data = {
+    api: 'openai',
+    model: 'gpt-3.5-turbo',
+    topic: 'The Future of Artificial Intelligence',
+    language: 'English',
+    word_count: 5000
+};
+
+axios.post(API_ENDPOINT, data, { headers })
+    .then(response => {
+        console.log(\`Book generation started. Job ID: \${response.data.job_id}\`);
+    })
+    .catch(error => {
+        console.error('Error:', error.response ? error.response.data : error.message);
+    });`]
 
 function App() {
 
   const [themeMode, setThemeMode] = useState("light")
+  const [apiKey, setApiKey] = useState<string>('');
 
   const lightTheme = () => {
     setThemeMode("light")
@@ -52,6 +85,18 @@ function App() {
     document.querySelector('html')?.classList.add(themeMode)
   }, [themeMode])
 
+  const generateApiKey = () => {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    let result = '';
+    const length = 40; // Set the length of the generated API key
+
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    console.log(result)
+    setApiKey(result);
+  };
+
   return (
     <>
     <ThemeProvider value={{themeMode, lightTheme, darkTheme}}>
@@ -65,46 +110,43 @@ function App() {
 
           <Card cardTitle="Authentication">
             <p>To use the API, you need to include your API key in the header of each request:</p>
-            {/* <Markdown>
-              {code}
-            </Markdown> */}
-            <p className=' border rounded-lg border-border-color break-all p-4'>X-API-Key: YOUR_API_KEY</p>
+            <p className=' border rounded-lg border-border-color break-all p-4 dark:border-border-dark'>X-API-Key: YOUR_API_KEY</p>
             <p>To generate an API key, use the button below:</p>
-            <button className='bg-[#22d3ee] text-background p-3 my-3 rounded-lg font-bold'>Generate API Key</button>
-            <div className='border rounded-lg border-border-color break-all p-4'>Your API Key: 
-              <strong className=''> ksdlfjllkkkkkkkkkkkkkkkkkkkkkkskdsjldsdjljj</strong>
+
+            <button onClick={generateApiKey} className='bg-accent hover:-translate-y-1 transition-all duration-400 text-text-primary-dark p-3 my-6 rounded-lg font-bold'>Generate API Key</button>
+            <div className='border rounded-lg border-border-color dark:border-border-dark break-all p-4'>Your API Key: 
+            <strong className={apiKey ? 'inline' : 'hidden'}> {apiKey}</strong>
             </div>
+
+          </Card>
+
+          <Card cardTitle='Endpoints'>
+            <h2 className='text-text-heading dark:text-text-heading-dark my-4'>Generate Book</h2>
+            <div className='flex justify-start items-center gap-4 font-bold text-text-primary-dark'>
+            <span className='bg-accent-secondary p-2 rounded-md'>POST</span>
+            <span className='bg-accent p-2 rounded-md'>/api/generate-book</span>
+
+            
+            </div>
+            <h2 className='text-text-heading dark:text-text-heading-dark my-4 mt-8'>Request Body</h2>
+            <Table tableContent={apiData} tableHeading={apiHeadings}/>
+            
 
           </Card>
 
           <Card cardTitle='Code Examples'>
             <Tabs>
-            <Tab label="Tab 1">
-          <div className="py-4">
-            <h2 className="text-lg font-medium mb-2">Tab 1 Content</h2>
-            <p className="text-gray-700">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae
-              quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis
-              harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum!
-              Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius
-              earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia
-              aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas
-              aliquid. Reprehenderit, quia. Quo neque error repudiandae fuga? Ipsa laudantium
-              molestias eos sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam
-              recusandae alias error harum maxime adipisci amet laborum.
-            </p>
+            <Tab label="Python">
+          <div className="py-4 w-full">
+            <CodeBlock language='python' codeString={codeBlocks[0]}/>
           </div>
           </Tab>
 
-          <Tab label="Tab 2">
-          <div className="py-4">
-            <h2 className="text-lg font-medium mb-2">Tab 2 Content</h2>
-            <p className="text-gray-700">
-              Lfjsfjkkkkkkkkkkkkkkkkdita sint? Sed quibusdam
-              recusandae alias error harum maxime adipisci amet laborum.
-            </p>
+          <Tab label="JavaScript (Node.js)">
+          <div className="py-4 w-full">
+            <CodeBlock language='javascript' codeString={codeBlocks[1]}/>
           </div>
-        </Tab>
+          </Tab>
             </Tabs>
           </Card>
 
@@ -117,7 +159,7 @@ function App() {
             <p className=''>You will only be charged for the tokens used in generating the book. The API tracks token usage and bills accordingly. Detailed usage reports are available in your account dashboard.</p>
           </Card>
         </div>
-
+        
       </MainLayout>
       </ThemeProvider>
     </>

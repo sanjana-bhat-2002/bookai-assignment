@@ -1,27 +1,24 @@
-interface TableRow {
-    api: string;
-    price: string;
-    model: string;
-}
-  
-  interface TableProps {
-    tableHeading: string[];
-    tableContent: TableRow[];
-  }
+import React from 'react';
 
-const Table = ({tableHeading, tableContent}: TableProps) => {
+interface TableProps<T> {
+  tableHeading: string[];
+  tableContent: T[];
+}
+
+const Table = <T extends { [key: string]: any }>({ tableHeading, tableContent }: TableProps<T>) => {
+  console.log(tableContent)
   return (
-    <table className='w-full mx-auto text-sm md:text-lg mt-4 mb-8 text-left border border-separate border-spacing-0 overflow-hidden rounded-xl border-border dark:border-border-dark'>
-    <thead>
+    <table className="w-full mx-auto text-sm md:text-lg mt-4 mb-8 text-left border border-separate border-spacing-0 overflow-hidden rounded-xl border-border dark:border-border-dark">
+      <thead>
         <tr>
-            {
-                tableHeading.map((item, index) => (
-                        <th className="bg-accent text-text-primary-dark py-2 px-4" key={index}>{item.toUpperCase()}</th>
-            ))
-        }
+          {tableHeading.map((item, index) => (
+            <th className="bg-accent text-text-primary-dark py-2 px-4" key={index}>
+              {item.toUpperCase()}
+            </th>
+          ))}
         </tr>
-    </thead>
-    <tbody>
+      </thead>
+      <tbody>
     {tableContent.map((item, rowIndex) => (
           <tr key={rowIndex} className="mt-4 text-text-primary dark:text-text-primary-dark">
             {Object.values(item).map((value, index) => (
@@ -36,7 +33,7 @@ const Table = ({tableHeading, tableContent}: TableProps) => {
         ))}
     </tbody>
     </table>
-  )
-}
+  );
+};
 
-export default Table
+export default Table;
