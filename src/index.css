@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Special+Elite&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -51,4 +49,23 @@ h3 {
   color: var(--heading-color);
   font-size: large;
   font-weight: bold;
+}
+
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate-animation {
+  animation: rotate 3s infinite linear;
+  transform-origin: 50% 50%;
+}
+ .rotate-animation-center {
+  animation: rotate 3s infinite linear;
+  transform-origin: 50% 50%;
 }

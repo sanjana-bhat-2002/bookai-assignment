@@ -21,11 +21,42 @@ export default {
         "border-dark": "var(--border-dark)",
       },
 
+      hyphens: {
+        auto: "auto",
+        none: "none",
+        manual: "manual",
+      },
+
       backgroundImage: {
         gradient: "var(--primary)",
       },
+
+      animation: {
+        'fade-in': 'fadeIn 0.7s ease-in-out'
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        }
+      }
     },
   },
-  plugins: [require("@anishshobithps/tailwind-breakpoints")],
+  plugins: [
+    require("@anishshobithps/tailwind-breakpoints"),
+    function ({ addUtilities }) {
+      addUtilities({
+        ".hyphens-auto": {
+          hyphens: "auto",
+        },
+        ".hyphens-none": {
+          hyphens: "none",
+        },
+        ".hyphens-manual": {
+          hyphens: "manual",
+        },
+      });
+    },
+  ],
   darkMode: "class",
 };

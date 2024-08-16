@@ -14,7 +14,7 @@ const Table = <T extends { [key: string]: any }>({
         <tr>
           {tableHeading.map((item, index) => (
             <th
-              className="bg-accent text-text-primary-dark py-2 px-4"
+              className="bg-accent text-text-primary-dark py-2 px-2 sm:px-4 break-words"
               key={index}
             >
               {item.toUpperCase()}
@@ -31,7 +31,7 @@ const Table = <T extends { [key: string]: any }>({
             {Object.values(item).map((value, index) => (
               <td
                 key={index}
-                className={`py-4 px-4 ${rowIndex === tableContent.length - 1 ? "" : "border-b border-border dark:border-border-dark"}`}
+                className={`py-4 px-2 sm:px-4 ${rowIndex === tableContent.length - 1 ? "" : "border-b border-border dark:border-border-dark"}`}
               >
                 {value}
               </td>
