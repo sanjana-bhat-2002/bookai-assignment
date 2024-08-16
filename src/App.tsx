@@ -81,6 +81,7 @@ function App() {
                 <p>To generate an API key, use the button below:</p>
 
                 <button
+                  aria-label="Generate API Key"
                   onClick={() => {
                     setApiKey(generateApiKey);
                   }}

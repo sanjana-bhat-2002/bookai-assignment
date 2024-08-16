@@ -14,6 +14,7 @@ export default function ThemeBtn() {
     <div className="py-2">
       <label className="relative inline-flex items-center cursor-pointer">
         <input
+          aria-label="Toggle Switch"
           type="checkbox"
           value=""
           className="sr-only peer"
