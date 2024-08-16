@@ -36,7 +36,7 @@ export default {
       },
       keyframes: {
         fadeIn: {
-          '0%': { opacity: '0' },
+          '0%': { opacity: '0.01' },
           '100%': { opacity: '1' },
         }
       }
